@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./assets/style.css" />
+    <title>Loja Gamer</title>
+  </head>
+
+  <body>
+    <section class="Home">
+      <header class="Home__header Header">
+        <div class="row">
+          <div class="Header__logo Logo">
+            <img
+              src="./assets/img/gamer-svgrepo-com.svg"
+              width="70px"
+              alt="Logo Loja Gamer"
+              class="Logo__icone"
+            />
+            <span class="Logo__titulo"> Loja Gamer </span>
+          </div>
+
+          <div class="Header__opcoes Opcoes">
+            <div class="Opcoes__sacola Sacola">
+              <img
+                src="./assets/img/sacola.svg"
+                width="40px"
+                class="Sacola__icone"
+                alt="Sacola de compras"
+              />
+            </div>
+          </div>
+        </div>
+      </header>
+
+      <section class="options">
+        <span class="msg-alert"></span>
+        <button type="button" class="default-button" onclick="abrirModal()">
+          Cadastrar Computador
+        </button>
+      </section>
+
+      <section class="modal-overlay" id="overlay">
+        <div class="modal">
+          <div class="modal-header">
+            <h2 id="title-header-modal">Cadastrar um computador</h2>
+            <a onclick="fecharModal()" class="close-modal">x</a>
+          </div>
+
+          <div class="modal-body">
+            <div>
+              <input type="hidden" id="id" />
+              <input
+                type="text"
+                name="nome"
+                id="nome"
+                placeholder="Nome do computador"
+              />
+              <input
+                type="number"
+                name="preco"
+                id="preco"
+                placeholder="Preço do Computador"
+              />
+              <textarea
+                type="text"
+                name="descricao"
+                id="descricao"
+                placeholder="Descrição do Computador"
+                rows="5"
+              ></textarea>
+              <input
+                type="text"
+                name="foto"
+                id="foto"
+                placeholder="Link da Foto do Computador"
+              />
+              <button id="button-form-modal" onclick="submitComputador()">
+                Cadastrar
+              </button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="modal-overlay" id="overlay-delete">
+        <div class="modal">
+          <div class="modal-header">
+            <h2 id="title-header-modal">Confirmação de deleção</h2>
+            <a onclick="fecharModalDelete()" class="close-modal">x</a>
+          </div>
+          <div class="modal-body-delete">
+            <p>Deseja realmente apagar esse computador?</p>
+            <div class="btns_delete">
+              <button
+                class="btn_delete_no btn_delete"
+                onclick="fecharModalDelete()"
+              >
+                Não
+              </button>
+              <button class="btn_delete_yes btn_delete">Sim</button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <h2>Pesquisar Computador</h2>
+      <div class="computador-escolhido-espaco">
+        <div id="computador-escolhido-input-espaco">
+          <input
+            type="text"
+            id="idComputador"
+            placeholder="Digite o ID do computador e clique em 'Escolher'"
+          />
+          <button class="default-button" onclick="findByIdComputadores()">
+            ESCOLHER
+          </button>
+        </div>
+        <div id="computadorEscolhido"></div>
+      </div>
+
+      <h2>Computadores Disponíveis:</h2>
+      <div class="Home__container">
+        <div class="ComputadorLista" id="computadorList"></div>
+      </div>
+    </section>
+
+    <script src="./assets/script.js"></script>
+  </body>
+</html>
